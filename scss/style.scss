@@ -1,0 +1,53 @@
+$primary-color: rgb(199, 199, 255);
+
+@mixin flexCnt() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+  background-color: $primary-color;
+  font-size: 16px;
+  @include flexCnt;
+
+.super-container {
+    @include flexCnt;
+    height: 100vh; 
+    flex-direction: column;
+
+    .content {
+        width: 400px;
+        @include flexCnt;
+        flex-direction: column;
+
+        input {
+            width: 100%;
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid darken($primary-color, 50%);
+
+            &:focus {
+            outline: none;
+            }
+        }
+
+        button {
+            @extend input;
+            background-color: transparent;
+            font: bold 1.5em Helvetica, sans-serif;
+            color: #FFF;
+            transition: .2s ease-in-out;
+
+            &:active {
+                scale: .9;
+            }
+        }
+    }
+}
+}
+
+
+
+
